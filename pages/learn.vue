@@ -23,9 +23,9 @@
       </template>
 
       <v-card
-        style="background: #3c414a; border-radius: 8px; width: 270px"
+        style="background: #3c414a; border-radius: 8px"
         elevation="0"
-        class="pt-2 px-3 d-flex flex-column"
+        class="pt-2 px-3 d-flex flex-column menu-card"
       >
         <v-btn
           class="show-playing"
@@ -33,10 +33,11 @@
           :ripple="false"
           :loading="bgmLoading"
         >
-          <v-icon>mdi-play</v-icon>Playing Now -
+          <v-icon>mdi-play</v-icon
+          >{{ $vuetify.breakpoint.xs ? 'Now - ' : 'Playing Now - ' }}
           <marquee
             class="ml-1 mr-1 my-auto"
-            width="25%"
+            :width="$vuetify.breakpoint.xs ? '40%' : '25%'"
             direction="right"
             scrollamount="3"
             >{{ playing }}</marquee
@@ -85,9 +86,11 @@
       <span>Now Playing - </span
       ><marquee
         class="ml-1"
-        width="55%"
+        :width="$vuetify.breakpoint.xs ? '30%' : '55%'"
         direction="right"
-        style="margin-right: -15px"
+        :style="
+          $vuetify.breakpoint.xs ? 'margin-right: 0px' : 'margin-right: -15px'
+        "
         scrollamount="3"
         >{{ this.playing }}</marquee
       ></v-btn
@@ -131,18 +134,13 @@
         <span class="ma-auto">Hello.</span
         ><v-btn
           href="#2"
-          class="btn item-hover"
+          class="btn chevron-btn item-hover"
           :ripple="false"
           text
-          style="
-            position: absolute;
-            left: 50%;
-            bottom: 10%;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            color: #fff;
-          "
-          ><v-icon size="80">mdi-chevron-down</v-icon>
+          style="color: #fff"
+          ><v-icon :size="$vuetify.breakpoint.xs ? '60' : '70'"
+            >mdi-chevron-down</v-icon
+          >
         </v-btn>
       </h1>
     </section>
@@ -325,6 +323,30 @@ video {
   font-weight: bold;
   color: #fff;
   mix-blend-mode: multiply;
+}
+.chevron-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  color: #fff;
+}
+.menu-card {
+  width: 270px;
+}
+@media (max-width: 480px) {
+  .suzume {
+    font-size: 100px;
+    mix-blend-mode: plus-lighter;
+  }
+  .chevron-btn {
+    left: 50%;
+    bottom: 12%;
+  }
+  .menu-card {
+    width: 220px;
+  }
 }
 .btn::before {
   background-color: transparent !important;

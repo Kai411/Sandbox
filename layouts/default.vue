@@ -7,7 +7,11 @@
     <v-main>
       <v-container fluid class="ma-0 pa-0">
         <Nuxt />
-        <VueCursor scaleElement="item-hover" :cursorColor="'#fff'" />
+        <VueCursor
+          v-if="!this.$vuetify.breakpoint.xs"
+          scaleElement="item-hover"
+          :cursorColor="'#fff'"
+        />
       </v-container>
     </v-main>
   </v-app>
