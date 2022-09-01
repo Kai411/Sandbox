@@ -119,11 +119,7 @@
         mix-blend-mode: difference;
       "
       class="mt-2 btn item-hover"
-      @click="
-        () => {
-          this.$router.push('/')
-        }
-      "
+      @click="goBack()"
       ><v-icon>mdi-chevron-left</v-icon>Back</v-btn
     >
 
@@ -277,6 +273,10 @@ export default {
       console.log('play')
       this.$refs.bgm.play()
       this.bgmLoading = false
+    },
+    goBack() {
+      document.webkitExitFullscreen()
+      this.$router.push('/')
     },
   },
   mounted() {
