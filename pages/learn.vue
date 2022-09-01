@@ -281,6 +281,15 @@ export default {
   },
   mounted() {
     // this.$refs.videoPlayer.play()
+    // if (this.$vuetify.breakpoint.xs) {
+    //   window.scrollTo(0, 1)
+    // }
+    // let xs = this.$vuetify.breakpoint.xs
+    // if (xs) {
+    //   window.scrollTo(0, 1)
+    // }
+    document.body.requestFullscreen()
+    console.log(this.$vuetify.breakpoint.xs)
 
     let random = Math.floor(Math.random() * 3)
     this.playing = this.musics[random].name
