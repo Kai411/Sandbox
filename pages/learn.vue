@@ -137,7 +137,7 @@
         <span class="ma-auto">Hello.</span
         ><v-btn
           href="#2"
-          class="btn chevron-btn item-hover"
+          class="chevron-btn item-hover"
           :ripple="false"
           text
           style="color: #fff"
@@ -382,8 +382,8 @@ video {
 .btn::before {
   background-color: transparent !important;
 }
-.btn:hover {
-  transform: scale(1.2);
+.chevron-btn::before {
+  background-color: transparent !important;
 }
 .suzumeBg {
   filter: saturate(1.8);
