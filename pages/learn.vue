@@ -128,7 +128,14 @@
     >
 
     <section class="vidSection">
-      <video class="suzumeBg" ref="suzume" :src="Suzume" muted loop></video>
+      <video
+        class="suzumeBg"
+        ref="suzume"
+        :src="Suzume"
+        muted
+        loop
+        style="height: 100vh"
+      ></video>
 
       <h1 class="suzume d-flex flex-column">
         <span class="ma-auto">Hello.</span
