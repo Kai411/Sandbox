@@ -20,14 +20,15 @@
                 debitis ipsam recusandae nobis sunt?</span
               >
             </p>
+
             <v-btn
-              class="btn item-hover"
+              class="btn item-hover d-flex"
               outlined
               color="white"
-              @click="$router.push('/learn')"
-              >Learn More</v-btn
-            ></v-col
-          ></v-row
+              @click="$router.push('/isekai')"
+              >Isekai 💥
+            </v-btn>
+          </v-col></v-row
         >
       </div>
     </section>
@@ -35,12 +36,38 @@
     <div class="" style="height: 100vh; background: white">
       <v-btn outlined color="black">Test</v-btn>
     </div>
-    <div class="" style="height: 800px; background: black"></div>
+    <div class="" style="height: 100vh; background: black">
+      <section class="vidSection">
+        <video
+          class="suzumeBg"
+          ref="suzume"
+          :src="Suzume"
+          muted
+          loop
+          style="height: 100vh"
+        ></video>
+
+        <!-- <h1 class="suzume d-flex flex-column">
+          <span class="ma-auto">Hello.</span
+          ><v-btn
+            href="#2"
+            class="chevron-btn item-hover"
+            :ripple="false"
+            text
+            style="color: #fff"
+            ><v-icon :size="$vuetify.breakpoint.xs ? '60' : '70'"
+              >mdi-chevron-down</v-icon
+            >
+          </v-btn>
+        </h1> -->
+      </section>
+    </div>
   </v-container>
 </template>
 
 <script>
 import Vue from 'vue'
+import megumin from '../assets/Megumin.png'
 Vue.directive('hover-direction', {
   inserted(el) {
     el.addEventListener('mousemove', ({ offsetX }) => {
@@ -58,6 +85,8 @@ Vue.directive('hover-direction', {
 import lottie from 'vue-lottie/src/lottie.vue'
 import * as hi from '~/assets/hi.json'
 
+import Suzume from '../assets/Suzume.mp4'
+
 export default {
   name: 'IndexPage',
   data() {
@@ -65,6 +94,8 @@ export default {
       image: '',
       option: '',
       imgLoading: false,
+      megumin,
+      Suzume,
       lottieOptions: {
         animationData: hi.default,
         loop: false,
@@ -77,6 +108,9 @@ export default {
   },
   methods: {
     //
+  },
+  mounted() {
+    this.$refs.suzume.play()
   },
 }
 </script>

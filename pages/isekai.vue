@@ -1,5 +1,72 @@
 <template>
   <v-container class="ma-0 pa-0" fluid style="position: relative">
+    <!-- Temporary cover up for vid watermark -->
+    <div
+      style="
+        width: 80px;
+        height: 35px;
+        position: fixed;
+        background: black;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+      "
+    ></div>
+    <v-btn
+      class="btn"
+      text
+      :ripple="false"
+      color="#34eb55"
+      style="position: fixed; left: 0; bottom: 3%; z-index: 10"
+    >
+      <v-icon>mdi-help-circle-outline</v-icon></v-btn
+    >
+
+    <!-- <v-dialog v-model="dialog" width="500">
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          class="btn"
+          text
+          :ripple="false"
+          color="#34eb55"
+          v-bind="attrs"
+          v-on="on"
+          style="position: fixed; left: 0; bottom: 3%; z-index: 10"
+        >
+          <v-icon>mdi-help-circle-outline</v-icon>
+        </v-btn>
+      </template>
+
+      <v-card
+        class="d-flex flex-column pb-6"
+        style="background: #3c414a; border-radius: 8px"
+        elevation="0"
+      >
+        <v-card-title class="mx-0" style="color: #34eb55"
+          >Music Player for WEEB</v-card-title
+        >
+        <v-expansion-panels class="px-6 mb-3" accordion="false">
+          <v-expansion-panel
+            v-for="(item, i) in 3"
+            :key="i"
+            style="background-color: #3c414a"
+          >
+            <v-expansion-panel-header> Item </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+        <div class="px-6" style="width: 100%">
+          <v-btn outlined style="width: 100%" color="red">close</v-btn>
+        </div>
+        
+      </v-card>
+    </v-dialog> -->
+
     <v-menu
       v-model="menu"
       :close-on-content-click="false"
@@ -10,7 +77,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           :ripple="false"
-          class="btn item-hover mt-2"
+          class="btn item-hover mt-3"
           text
           color="#34eb55"
           dark
@@ -18,7 +85,7 @@
           v-on="on"
           style="position: fixed; right: 1%; z-index: 10000"
         >
-          <v-icon size="30">mdi-playlist-play</v-icon>
+          <v-icon size="40">mdi-playlist-play</v-icon>
         </v-btn>
       </template>
 
@@ -133,7 +200,7 @@
         style="height: 100vh"
       ></video>
 
-      <h1 class="suzume d-flex flex-column">
+      <!-- <h1 class="suzume d-flex flex-column">
         <span class="ma-auto">Hello.</span
         ><v-btn
           href="#2"
@@ -145,14 +212,7 @@
             >mdi-chevron-down</v-icon
           >
         </v-btn>
-      </h1>
-    </section>
-    <div
-      id="2"
-      class="d-flex"
-      style="background: white; height: 100vh; padding: 100px"
-    >
-      <video
+      </h1> --><video
         id="bgm1"
         ref="bgm"
         :src="src"
@@ -161,12 +221,7 @@
         controls
         type="video/mp4"
       ></video>
-
-      <h1 style="color: black">test</h1>
-    </div>
-    <div class="" style="background: black; height: 100vh; padding: 100px">
-      <h1 style="color: white">4</h1>
-    </div>
+    </section>
   </v-container>
 </template>
 
@@ -215,6 +270,7 @@ export default {
       prevVolume: null,
       playing: null,
       menu: false,
+      dialog: false,
       bgmLoading: false,
       musics: [
         {
@@ -358,7 +414,7 @@ video {
 .chevron-btn {
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 12%;
   transform: translate(-50%, -50%);
   z-index: 10000;
   color: #fff;
@@ -371,10 +427,7 @@ video {
     font-size: 100px;
     mix-blend-mode: plus-lighter;
   }
-  .chevron-btn {
-    left: 50%;
-    bottom: 12%;
-  }
+
   .menu-card {
     width: 220px;
   }
