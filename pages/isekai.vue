@@ -1,17 +1,5 @@
 <template>
   <v-container class="ma-0 pa-0" fluid style="position: relative">
-    <!-- Temporary cover up for vid watermark -->
-    <div
-      style="
-        width: 80px;
-        height: 35px;
-        position: fixed;
-        background: black;
-        right: 0;
-        bottom: 0;
-        z-index: 10;
-      "
-    ></div>
     <v-btn
       class="btn"
       text
@@ -197,8 +185,16 @@
         :src="Suzume"
         muted
         loop
-        style="height: 100vh"
+        style="height: 100vh; position: relative"
       ></video>
+      <div
+        class=""
+        style="position: absolute; width: 100%; height: 15%; background: black; top: 0; left; 0"
+      ></div>
+      <div
+        class=""
+        style="position: absolute; width: 100%; height: 15%; background: black; bottom: 0; left; 0"
+      ></div>
 
       <!-- <h1 class="suzume d-flex flex-column">
         <span class="ma-auto">Hello.</span
@@ -402,7 +398,7 @@ video {
   object-fit: cover;
   position: absolute;
 }
-.suzume {
+/* .suzume {
   width: 100%;
   height: 100%;
   background-color: #000;
@@ -410,7 +406,7 @@ video {
   font-weight: bold;
   color: #fff;
   mix-blend-mode: multiply;
-}
+} */
 .chevron-btn {
   position: absolute;
   left: 50%;

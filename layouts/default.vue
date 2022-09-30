@@ -6,7 +6,7 @@
     </v-app-bar> -->
     <v-main>
       <v-container fluid class="ma-0 pa-0">
-        <Nuxt />
+        <Nuxt class="font-display" />
         <VueCursor
           v-if="!this.$vuetify.breakpoint.xs"
           scaleElement="item-hover"
@@ -60,4 +60,9 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #8ca5ae;
 }
+/* font not working */
+/* .font-display {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+} */
 </style>

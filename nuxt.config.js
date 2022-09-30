@@ -43,6 +43,14 @@ export default {
     '@nuxtjs/axios',
   ],
 
+  googleFonts: {
+    families: {
+      Nunito: [400, 500, 600],
+      Lato: [400, 500, 600],
+      Poppins: [400, 500, 600],
+    },
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

@@ -47,9 +47,11 @@
           style="height: 100vh"
         ></video>
 
-        <!-- <h1 class="suzume d-flex flex-column">
-          <span class="ma-auto">Hello.</span
-          ><v-btn
+        <h1 class="suzume d-flex flex-column">
+          <span class="mt-10">Hi</span>
+          <span class="">Test</span>
+          <span class="">Idk</span>
+          <!-- <v-btn
             href="#2"
             class="chevron-btn item-hover"
             :ripple="false"
@@ -58,8 +60,8 @@
             ><v-icon :size="$vuetify.breakpoint.xs ? '60' : '70'"
               >mdi-chevron-down</v-icon
             >
-          </v-btn>
-        </h1> -->
+          </v-btn> -->
+        </h1>
       </section>
     </div>
   </v-container>
@@ -118,5 +120,15 @@ export default {
 <style>
 .btn:hover {
   transform: scale(1.2);
+}
+.suzume {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  /* font-size: calc(100vh / 1.8); */
+  font-weight: bold;
+  color: #fff;
+  mix-blend-mode: multiply;
+  position: relative;
 }
 </style>
